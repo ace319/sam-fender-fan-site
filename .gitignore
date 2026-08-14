@@ -1,0 +1,25 @@
+.DS_Store
+
+# Other independent projects stored in the same local workspace
+/acl-history-site/
+/albatross-atlas/
+/benson-boone-fan-page/
+/crocodilian-site/
+/gresley-website-local/
+/images/
+/screenshots/
+/scripts/
+
+# Unrelated root assets and project notes
+/assets/crocodilia/
+/assets/james-stewart-hero.png
+/assets/james-stewart-portrait.jpg
+/DESIGN.md
+/.tools/
+/earth.css
+/earth.js
+/hero-motion.css
+/photos.js
+/satellite-interaction.js
+/satellite.css
+/species.css
