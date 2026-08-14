@@ -1,0 +1,16 @@
+.sam-on-youtube{background:#171714;color:#f4f0e6;border-top:1px solid #3c3a32;border-bottom:1px solid #3c3a32}
+.youtube-section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(16rem,.55fr);gap:2rem;align-items:end;margin-bottom:2rem}
+.youtube-section-head h2{margin:.35rem 0 0;font-family:"Archivo Black",sans-serif;font-size:clamp(2.8rem,7vw,6.5rem);line-height:.82;letter-spacing:-.065em}
+.youtube-section-head h2 em{color:#e8c64b;font-style:normal}
+.youtube-section-head>p{max-width:28rem;margin:0;color:#c7c1b2;font-size:1.05rem;line-height:1.6}
+.youtube-appearances{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.youtube-appearances article{min-width:0;background:#22221e;border:1px solid #414037}
+.youtube-frame{position:relative;aspect-ratio:16/9;background:#090909;overflow:hidden}
+.youtube-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.youtube-card-copy{padding:1.1rem 1.15rem 1.25rem}
+.youtube-card-copy small{display:block;color:#e8c64b;font-family:"DM Mono",monospace;font-size:.7rem;letter-spacing:.08em}
+.youtube-card-copy h3{margin:.55rem 0 .5rem;font-family:"Archivo Black",sans-serif;font-size:1.15rem;line-height:1.05;text-transform:uppercase}
+.youtube-card-copy p{min-height:3.2em;margin:0 0 1rem;color:#bbb5a7;font-size:.88rem;line-height:1.5}
+.youtube-card-copy a{color:#f4f0e6;font-family:"DM Mono",monospace;font-size:.72rem;text-decoration:none;border-bottom:1px solid #e8c64b;padding-bottom:.18rem}
+.youtube-card-copy a:hover,.youtube-card-copy a:focus-visible{color:#e8c64b}
+@media(max-width:850px){.youtube-section-head{grid-template-columns:1fr}.youtube-appearances{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.75rem}.youtube-appearances article{flex:0 0 min(82vw,25rem);scroll-snap-align:start}.youtube-card-copy p{min-height:0}}
