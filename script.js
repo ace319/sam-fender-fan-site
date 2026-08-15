@@ -1,3 +1,8 @@
+if('scrollRestoration' in history)history.scrollRestoration='manual';
+if(location.hash)history.replaceState(null,'',location.pathname+location.search);
+const resetPagePosition=()=>window.scrollTo({top:0,left:0,behavior:'auto'});
+window.addEventListener('load',resetPagePosition,{once:true});
+window.addEventListener('pageshow',event=>{if(event.persisted)resetPagePosition()});
 const menu=document.querySelector('.menu'),nav=document.querySelector('#nav');menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));menu.textContent=open?'Menu +':'Close ×';nav.classList.toggle('open',!open)});nav.addEventListener('click',()=>{menu.setAttribute('aria-expanded','false');menu.textContent='Menu +';nav.classList.remove('open')});
 if(!document.querySelector('link[rel="canonical"]'))document.head.insertAdjacentHTML('beforeend','<link rel="canonical" href="https://ace319.github.io/sam-fender-fan-site/">');
 document.querySelectorAll('[data-title]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-title]').forEach(item=>item.classList.remove('active'));button.classList.add('active');document.querySelector('#playing').textContent=button.dataset.title;document.querySelector('#note').textContent=button.dataset.note;document.querySelector('#listen').href=`https://open.spotify.com/search/${encodeURIComponent(button.dataset.title+' Sam Fender')}`}));
