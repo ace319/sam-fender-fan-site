@@ -202,7 +202,7 @@ setTimeout(()=>{
   replace('#start .lead p:first-child','He writes about North Shields as it is: mates, money, family, grief, class and getting through it.');
   replace('#start .lead p:last-child','Jazzmaster clang, Blue Hat’s sax and a Geordie crowd roaring every word back.');
   replace('#albums .lead','Three number-one records. Start with People Watching, then head back to where the racket began.');
-  replace('#photos .lead','Sam onstage: sweat, Jazzmasters, festival fields and a face built for the big screen.');
+  replace('#photos .lead','Sam onstage: Jazzmasters, festival fields and songs built for massive crowds.');
   replace('#honors .lead','BRITs, Ivors, the Mercury and three number-one albums—the graft from North Shields paid off.');
   replace('#toon .lead','Newcastle, North Shields, the Tyne and the football club: this is the ground beneath the songs.');
 
