@@ -30,6 +30,7 @@ document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="archi
 document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="official-links.css?v=20260814b">');
 document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="special-appearances.css">');
 document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="sam-on-youtube.css">');
+document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="record-banner-fix.css">');
 document.head.insertAdjacentHTML('beforeend','<link rel="icon" href="https://www.samfender.com/wp-content/uploads/sites/10578/2024/11/cropped-sf-32x32.png" sizes="32x32"><link rel="icon" href="https://www.samfender.com/wp-content/uploads/sites/10578/2024/11/cropped-sf-192x192.png" sizes="192x192"><link rel="apple-touch-icon" href="https://www.samfender.com/wp-content/uploads/sites/10578/2024/11/cropped-sf-180x180.png"><link rel="stylesheet" href="exact-shows.css">');
 const americaIntro=document.querySelector('#join');
 const topTicker=document.querySelector('.ticker');
@@ -70,7 +71,7 @@ const galleryUpdates=[
   {src:'https://cloudfront-eu-central-1.images.arcpublishing.com/irishnews/PACLIKYGJFJBZHCTGDTXYRZ5U4.jpg',alt:'Sam Fender performing on stage at St James’ Park in Newcastle in June 2025',caption:'St James’ Park · 2025',position:'center 24%'}
 ];
 document.querySelectorAll('.photo-grid figure').forEach((figure,index)=>{const update=galleryUpdates[index];if(!update)return;const image=figure.querySelector('img');const caption=figure.querySelector('figcaption');image.src=update.src;image.alt=update.alt;image.style.objectPosition=update.position;caption.textContent=update.caption;});
-const honors=document.querySelector('#honors');if(honors){honors.insertAdjacentHTML('afterbegin','<div class="record-banner"><span>CURRENT UK CHART RECORD · AUGUST 2026</span><strong>21 WEEKS<br>AT NUMBER ONE.</strong><h2>“REIN ME IN”</h2><p>Sam Fender and Olivia Dean hold the all-time record for the most weeks at Number 1 on the UK Official Singles Chart. The song passed a 73-year record at week 19 and remains on top for a 21st non-consecutive week.</p><a href="https://www.officialcharts.com/artist/54705/sam-fender/" target="_blank" rel="noreferrer">See the current Official Chart ↗</a></div>');const stats=honors.querySelectorAll('.chart-stats article');if(stats[1])stats[1].innerHTML='<strong>21</strong><span>Weeks at UK #1 · Rein Me In</span>';}
+const honors=document.querySelector('#honors');if(honors){honors.insertAdjacentHTML('afterbegin','<div class="record-banner"><div class="record-copy"><span>CURRENT UK CHART RECORD · AUGUST 2026</span><strong>21 WEEKS<br>AT NUMBER ONE.</strong><h2>“REIN ME IN”</h2><p>Sam Fender and Olivia Dean hold the all-time record for the most weeks at Number 1 on the UK Official Singles Chart. The song passed a 73-year record at week 19 and remains on top for a 21st non-consecutive week.</p><a href="https://www.officialcharts.com/artist/54705/sam-fender/" target="_blank" rel="noreferrer">See the current Official Chart ↗</a></div></div>');const stats=honors.querySelectorAll('.chart-stats article');if(stats[1])stats[1].innerHTML='<strong>21</strong><span>Weeks at UK #1 · Rein Me In</span>';}
 const toonSplit=document.querySelector('.toon .split');if(toonSplit&&!toonSplit.querySelector('.toon-photo'))toonSplit.insertAdjacentHTML('beforeend','<a class="toon-photo" href="https://commons.wikimedia.org/wiki/File:Newcastle-upon-Tyne-bridges-and-skyline_cropped.jpg" target="_blank" rel="noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Newcastle-upon-Tyne-bridges-and-skyline_cropped.jpg/1280px-Newcastle-upon-Tyne-bridges-and-skyline_cropped.jpg" alt="Newcastle upon Tyne skyline and bridges over the River Tyne"><span>NEWCASTLE UPON TYNE · THE TOON ↗</span></a>');
 setTimeout(()=>{
   const toon=document.querySelector('.toon');
@@ -79,9 +80,11 @@ setTimeout(()=>{
   const banner=document.querySelector('.record-banner');
   if(banner&&!banner.querySelector('.record-photo')){
     banner.classList.add('has-record-photo');
-    const copy=document.createElement('div');copy.className='record-copy';
-    while(banner.firstChild)copy.appendChild(banner.firstChild);
-    banner.appendChild(copy);
+    if(!banner.querySelector(':scope > .record-copy')){
+      const copy=document.createElement('div');copy.className='record-copy';
+      while(banner.firstChild)copy.appendChild(banner.firstChild);
+      banner.appendChild(copy);
+    }
     banner.insertAdjacentHTML('beforeend','<figure class="record-photo"><img src="assets/rein-me-in-number-one-after-lollapalooza.png" alt="Sam Fender and Olivia Dean holding their Rein Me In number-one award backstage after Lollapalooza"><small>Sam Fender + Olivia Dean · after Lollapalooza 2026</small></figure>');
   }
 },180);

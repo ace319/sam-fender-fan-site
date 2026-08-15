@@ -1,0 +1,6 @@
+.record-banner .record-copy{min-width:0}
+.record-banner .record-copy>span{display:block;margin:0 0 clamp(1.25rem,2.5vw,2.25rem);line-height:1.5}
+.record-banner .record-copy>strong{display:block;margin:0 0 .5rem;font:clamp(4rem,9vw,10rem)/.78 var(--display);letter-spacing:-.08em}
+.record-banner .record-copy h2{margin:.35rem 0 1rem}
+.record-banner .record-copy p{margin:0 0 1.25rem}
+@media(max-width:560px){.record-banner .record-copy>span{max-width:15rem}.record-banner .record-copy>strong{font-size:clamp(3.2rem,17vw,5rem);line-height:.82;letter-spacing:-.07em}}
