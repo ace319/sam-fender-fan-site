@@ -36,6 +36,7 @@ document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="offic
 document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="special-appearances.css">');
 document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="sam-on-youtube.css">');
 document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="record-banner-fix.css?v=20260823a">');
+document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="site-pages.css?v=20260904a">');
 document.head.insertAdjacentHTML('beforeend','<link rel="icon" href="https://www.samfender.com/wp-content/uploads/sites/10578/2024/11/cropped-sf-32x32.png" sizes="32x32"><link rel="icon" href="https://www.samfender.com/wp-content/uploads/sites/10578/2024/11/cropped-sf-192x192.png" sizes="192x192"><link rel="apple-touch-icon" href="https://www.samfender.com/wp-content/uploads/sites/10578/2024/11/cropped-sf-180x180.png"><link rel="stylesheet" href="exact-shows.css">');
 const americaIntro=document.querySelector('#join');
 const topTicker=document.querySelector('.ticker');
@@ -226,3 +227,4 @@ setTimeout(()=>{
 
   document.querySelectorAll('iframe').forEach(frame=>{frame.loading='lazy';frame.referrerPolicy='strict-origin-when-cross-origin';const host=frame.parentElement;if(host&&!host.classList.contains('site-video-frame'))host.classList.add('site-video-frame')});
 },1400);
+const sitePagesScript=document.createElement('script');sitePagesScript.src='site-pages.js?v=20260904a';document.head.appendChild(sitePagesScript);
