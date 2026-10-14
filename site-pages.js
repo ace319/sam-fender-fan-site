@@ -29,7 +29,7 @@
   }
 
   const membership=new Map([
-    ['top',['home']],['join',['home']],['start',['music']],['albums',['music']],['discography',['music']],
+    ['top',['home']],['join',['home']],['latest-news',['home']],['start',['music']],['albums',['music']],['discography',['music']],
     ['about',['story']],['artists-on-sam',['story']],['toon',['story']],['photos',['photos']],
     ['honors',['awards']],['live-page',['live']],['sam-on-youtube',['connect']],['official-links',['connect']]
   ]);
