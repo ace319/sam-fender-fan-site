@@ -37,7 +37,7 @@ document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="speci
 document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="sam-on-youtube.css">');
 document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="record-banner-fix.css?v=20260823a">');
 document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="site-pages.css?v=20260904b">');
-document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="latest-news.css?v=20261014a">');
+document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="latest-news.css?v=20261018b">');
 document.head.insertAdjacentHTML('beforeend','<link rel="icon" href="https://www.samfender.com/wp-content/uploads/sites/10578/2024/11/cropped-sf-32x32.png" sizes="32x32"><link rel="icon" href="https://www.samfender.com/wp-content/uploads/sites/10578/2024/11/cropped-sf-192x192.png" sizes="192x192"><link rel="apple-touch-icon" href="https://www.samfender.com/wp-content/uploads/sites/10578/2024/11/cropped-sf-180x180.png"><link rel="stylesheet" href="exact-shows.css">');
 const americaIntro=document.querySelector('#join');
 const topTicker=document.querySelector('.ticker');
