@@ -149,6 +149,11 @@
   videoDetails.append(summary, promo);
   section.querySelector('.latest-news-grid').after(venues);
   venues.after(panel);
+  const charity = document.createElement('aside');
+  charity.className = 'sf27-charity';
+  charity.innerHTML = `<strong>£1 A TICKET. BACK TO THE GRASSROOTS.</strong><p>The 2027 UK stadium ticket listings pledge £1 per ticket to LIVE Trust, subject to taxes. LIVE Trust funds grassroots music programmes, including venue support delivered by Music Venue Trust.</p><div><a href="https://www.ticketmaster.co.uk/sam-fender-proper-massive-stadium-tour-manchester-15-07-2027/event/3E006553EBE66AFD" target="_blank" rel="noreferrer">TOUR DONATION DETAILS ↗</a><a href="https://www.livetrust.org/news/live-trust-announces-1-million-in-additional-funding" target="_blank" rel="noreferrer">LIVE TRUST &amp; MUSIC VENUE TRUST ↗</a></div>`;
+  venues.append(charity);
+  style.textContent += `.sf27-charity{padding:1.25rem 1.5rem;background:#172c56;border-top:1px solid #637cae;color:#fff}.sf27-charity>strong{font:1.1rem/1.2 'Archivo Black',sans-serif}.sf27-charity p{max-width:65rem;font-size:.9rem;line-height:1.6;margin:.75rem 0}.sf27-charity>div{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem}.sf27-charity a{color:#c7d8ff;font:.7rem/1.5 'DM Mono',monospace;text-underline-offset:3px}`;
   const campaign = document.createElement('figure');
   campaign.className = 'sf27-campaign-photo';
   campaign.innerHTML = `<picture><source media="(max-width:600px)" srcset="https://www.samfender.com/wp-content/themes/samfender/assets-sf27/img/phase-3-bg-m.jpg"><img src="https://www.samfender.com/wp-content/themes/samfender/assets-sf27/img/phase-3-bg.jpg" alt="Sam Fender leaning on a rooftop railing in the official Proper Massive Stadium Tour ’27 campaign photo" width="1440" height="900" loading="lazy"></picture><figcaption><span>PROPER MASSIVE STADIUM TOUR ’27</span><a href="https://www.samfender.com/" target="_blank" rel="noreferrer">OFFICIAL CAMPAIGN PHOTO ↗</a></figcaption>`;
