@@ -1,7 +1,7 @@
 (() => {
   const section = document.querySelector('#latest-news');
   if (!section || section.querySelector('.sf27-announcement')) return;
-  section.querySelector('.chapter').textContent = 'UPDATED 21 OCTOBER 2026';
+  section.querySelector('.chapter').textContent = 'UPDATED 26 OCTOBER 2026';
   const newsCard = section.querySelector('.latest-news-watch');
   newsCard.querySelector('small').textContent = 'ANNOUNCED · 21 OCTOBER 2026';
   newsCard.querySelector('h3').textContent = 'Proper Massive Stadium Tour ’27';
@@ -103,17 +103,38 @@
   const photoStyle = document.createElement('style');
   photoStyle.textContent = `.sf27-venues li{display:grid;grid-template-columns:42% minmax(0,1fr);gap:1rem;align-items:center;min-height:10rem}.sf27-venues li figure{margin:0;min-width:0}.sf27-venues li img{display:block;width:100%;height:7rem;object-fit:cover;border:1px solid #536da7}.sf27-venues li figure a{display:block;color:#bbcaff;font: .55rem/1.4 'DM Mono',monospace;margin-top:.35rem;text-underline-offset:2px}.sf27-venue-copy{display:flex;flex-direction:column;gap:.85rem;min-width:0}.sf27-venues li .sf27-venue-copy b{font-size:clamp(1rem,1.5vw,1.45rem);overflow-wrap:normal}@media(max-width:1050px){.sf27-venues ol{grid-template-columns:1fr 1fr}.sf27-venues li:nth-child(n){border-right:1px solid #fff;border-bottom:1px solid #fff}.sf27-venues li:nth-child(2n){border-right:0}.sf27-venues li:nth-last-child(-n+2){border-bottom:0}}@media(max-width:550px){.sf27-venues ol{grid-template-columns:1fr}.sf27-venues li:nth-child(n){border-right:0;border-bottom:1px solid #fff}.sf27-venues li:last-child{border-bottom:0}.sf27-venues li img{height:6.5rem}}`;
   document.head.append(photoStyle);
-  const target = Date.parse('2026-10-26T09:00:00Z');
+  const target = Date.parse('2026-10-28T09:30:00Z');
   const panel = document.createElement('div');
   panel.className = 'sf27-announcement';
   panel.innerHTML = `<div><small>SF4 · ALBUM FOUR IS AVAILABLE TO PREORDER</small><h3>NEW RECORD.<br>FIRST IN LINE.</h3><p>CD £11.99 · Vinyl £29.99 · CD + vinyl £33.99. The album title and artwork are not final; the official store currently lists shipping in mid-2027.</p><p>Preorder by <strong>26 October, 9am UK / 4am Chicago</strong> for stadium presale access. This countdown is for the access deadline.</p><p class="sf27-clock" role="timer" aria-label="Time remaining to qualify for stadium presale access"></p><a href="https://shop.samfender.com/" target="_blank" rel="noreferrer">PREORDER SF4 ↗</a><a href="https://samfender.lnk.to/npnsf27ST" target="_blank" rel="noreferrer">NO-PURCHASE-NECESSARY ACCESS ↗</a><p>Stadium presale: <strong>28 October, 9:30am UK / 4:30am Chicago.</strong><br>General sale: <strong>30 October, 9:30am UK / 4:30am Chicago.</strong></p><p>Access does not guarantee tickets. Up to six tickets per person. Check the official site for full terms.</p></div><div><small>CONFIRMED · BELGIUM · 3 JULY 2027</small><h3>ROCK<br>WERCHTER.</h3><p>Sam closes the Main Stage on <strong>Saturday 3 July 2027</strong> at Festivalpark Werchter, Belgium.</p><p>Festival tickets go on sale <strong>30 October at 10am Belgian time / 4am Chicago.</strong> Festival presale registration is separate from the stadium tour.</p><a href="https://www.rockwerchter.be/en/news/sam-fender-closes-the-main-stage-on-saturday-3-july" target="_blank" rel="noreferrer">OFFICIAL FESTIVAL ANNOUNCEMENT ↗</a><a href="https://www.rockwerchter.be/en/" target="_blank" rel="noreferrer">FESTIVAL TICKETS &amp; PRESALE ↗</a><a href="https://www.instagram.com/p/DeuUjZxCWcx/" target="_blank" rel="noreferrer">WATCH THE FESTIVAL PROMO ↗</a></div>`;
   section.querySelector('.sf27-promo')?.insertAdjacentElement('beforebegin', panel);
   if (!panel.isConnected) section.append(panel);
+  const albumCopy = panel.firstElementChild;
+  albumCopy.querySelector('h3').innerHTML = 'PRESALE.<br>28 OCTOBER.';
+  const albumParagraphs = albumCopy.querySelectorAll('p');
+  albumParagraphs[1].innerHTML = 'Album presale registration is now closed. Registered fans should receive their code and link by <strong>27 October, 8pm UK / 3pm Chicago</strong>. Check your spam folder too.';
+  albumCopy.querySelector('a[href="https://samfender.lnk.to/npnsf27ST"]').remove();
+  albumCopy.querySelector('a[href="https://shop.samfender.com/"]').textContent = 'SF4 · OFFICIAL ALBUM STORE ↗';
+  const pricePanel = document.createElement('aside');
+  pricePanel.className = 'sf27-ticket-prices';
+  pricePanel.innerHTML = `<small>UPDATED UK STADIUM PRICES · 26 OCTOBER 2026</small><h3>STANDING £85.<br>SEATS FROM £55.</h3><p>Seated price bands: £55 / £75 / £95. Venue and ticketing fees, plus the £1 LIVE Trust contribution, are additional. Premium front-standing sections have been removed; all standing ticket holders have the same opportunity to reach the front.</p><p>These announced prices apply to the UK stadium shows. Check the official seller for Dublin and Rock Werchter pricing.</p><a href="https://www.nme.com/news/music/sam-fender-scraps-front-standing-tickets-reduced-prices-2027-stadium-tour-3974164" target="_blank" rel="noreferrer">SAM’S PRICE UPDATE · NME ↗</a>`;
+  venues.after(pricePanel);
+  section.querySelectorAll('.sf27-show-dates time').forEach(time => {
+    const link = document.createElement('a');
+    link.className = 'sf27-date-ticket';
+    link.href = 'https://www.ticketmaster.co.uk/explore/sam-fender-ukie-2027';
+    link.target = '_blank';
+    link.rel = 'noreferrer';
+    link.textContent = 'PRESALE · ' + time.textContent + ' ↗';
+    link.setAttribute('aria-label', 'Official presale options for ' + time.textContent + ' at ' + time.closest('li').querySelector('b').textContent);
+    time.after(link);
+  });
   const clock = panel.querySelector('.sf27-clock');
+  clock.setAttribute('aria-label', 'Time until stadium album presale opens on 28 October at 9:30am UK');
   const updateClock = () => {
     const seconds = Math.max(0, Math.floor((target - Date.now()) / 1000));
     if (!seconds) {
-      clock.textContent = 'The album preorder deadline for stadium presale access has passed. Check the official site for ticket availability.';
+      clock.textContent = 'Album presale has opened. General sale: 30 October, 9:30am UK / 4:30am Chicago. Check the official seller for availability.';
       return;
     }
     const days = Math.floor(seconds / 86400);
@@ -129,6 +150,7 @@
   const style = document.createElement('style');
   style.textContent = `.sf27-announcement{display:grid;grid-template-columns:1fr 1fr;margin-top:1.5rem;border:1px solid #101010;background:#1754d1;color:#fff}.sf27-announcement>div{padding:clamp(1.5rem,3vw,3rem)}.sf27-announcement>div+div{border-left:1px solid #fff}.sf27-announcement small,.sf27-announcement a{font-family:'DM Mono',monospace;font-size:.74rem}.sf27-announcement h3{font-family:'Archivo Black',sans-serif;font-size:clamp(2rem,4vw,4rem);line-height:.9;letter-spacing:-.045em;margin:1rem 0}.sf27-announcement p{line-height:1.55}.sf27-announcement a{display:block;color:inherit;margin-top:1rem;text-underline-offset:4px}.sf27-announcement .sf27-clock{font-family:'DM Mono',monospace;font-size:clamp(1.25rem,3vw,2.5rem);font-variant-numeric:tabular-nums}@media(max-width:700px){.sf27-announcement{grid-template-columns:1fr}.sf27-announcement>div+div{border-left:0;border-top:1px solid #fff}}`;
   document.head.append(style);
+  style.textContent += `.sf27-ticket-prices{margin-top:1.5rem;padding:clamp(1.25rem,3vw,2rem);border:1px solid #101010;background:#101010;color:#fff}.sf27-ticket-prices small,.sf27-ticket-prices a{font:.72rem/1.5 'DM Mono',monospace}.sf27-ticket-prices h3{font:clamp(1.8rem,3vw,3rem)/.95 'Archivo Black',sans-serif;margin:1rem 0}.sf27-ticket-prices p{max-width:65rem;font-size:.95rem;line-height:1.6}.sf27-ticket-prices a,.sf27-date-ticket{color:#b8cdff;text-underline-offset:3px}.sf27-date-ticket{font:.65rem/1.4 'DM Mono',monospace;margin-bottom:.5rem}`;
   const festival = panel.lastElementChild;
   festival.className = 'sf27-festival';
   const festivalCopy = document.createElement('div');
