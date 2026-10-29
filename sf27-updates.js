@@ -1,17 +1,17 @@
 (() => {
   const section = document.querySelector('#latest-news');
   if (!section || section.querySelector('.sf27-announcement')) return;
-  section.querySelector('.chapter').textContent = 'UPDATED 28 OCTOBER 2026';
+  section.querySelector('.chapter').textContent = 'UPDATED 29 OCTOBER 2026';
   const newsCard = section.querySelector('.latest-news-watch');
   newsCard.querySelector('small').textContent = 'ANNOUNCED · 21 OCTOBER 2026';
   newsCard.querySelector('h3').textContent = 'Proper Massive Stadium Tour ’27';
-  newsCard.querySelector('p').textContent = 'Nine headline shows across six cities, plus Rock Werchter. Sam’s fourth album, SF4, is now available to preorder.';
+  newsCard.querySelector('p').textContent = 'Twelve headline shows across six cities, plus Rock Werchter. New dates: Cardiff 12 June, Edinburgh 10 July and Wembley 2 September 2027.';
   const venues = section.querySelector('.sf27-venues');
   venues.querySelector('.sf27-venues-head small').textContent = 'PROPER MASSIVE STADIUM TOUR ’27';
-  venues.querySelector('h3').innerHTML = 'SIX CITIES.<br>NINE SHOWS.';
+  venues.querySelector('h3').innerHTML = 'SIX CITIES.<br>TWELVE SHOWS.';
   venues.querySelector('.sf27-venues-head p').textContent = 'The confirmed 2027 dates, straight from Sam’s official website.';
   venues.querySelector('.sf27-venues-note').textContent = 'ANNOUNCED 21 OCTOBER 2026 · ALL DATES BELOW ARE IN 2027';
-  const dates = { 'St James': ['2027-06-03', '2027-06-05'], Principality: ['2027-06-10'], Wembley: ['2027-06-18', '2027-06-20'], Marlay: ['2027-07-01'], Murrayfield: ['2027-07-08'], Etihad: ['2027-07-15', '2027-07-17'] };
+  const dates = { 'St James': ['2027-06-03', '2027-06-05'], Principality: ['2027-06-10', '2027-06-12'], Wembley: ['2027-06-18', '2027-06-20', '2027-09-02'], Marlay: ['2027-07-01'], Murrayfield: ['2027-07-08', '2027-07-10'], Etihad: ['2027-07-15', '2027-07-17'] };
   const dateFormat = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', timeZone: 'UTC' });
   const cards = [...venues.querySelectorAll('li')];
   cards.forEach(card => {
@@ -23,6 +23,7 @@
       const time = document.createElement('time');
       time.dateTime = date;
       time.textContent = dateFormat.format(new Date(date + 'T12:00:00Z')) + ' 2027';
+      if (['2027-06-12', '2027-07-10', '2027-09-02'].includes(date)) time.textContent += ' · NEW DATE';
       line.append(time);
     });
     card.append(line);
@@ -103,22 +104,22 @@
   const photoStyle = document.createElement('style');
   photoStyle.textContent = `.sf27-venues li{display:grid;grid-template-columns:42% minmax(0,1fr);gap:1rem;align-items:center;min-height:10rem}.sf27-venues li figure{margin:0;min-width:0}.sf27-venues li img{display:block;width:100%;height:7rem;object-fit:cover;border:1px solid #536da7}.sf27-venues li figure a{display:block;color:#bbcaff;font: .55rem/1.4 'DM Mono',monospace;margin-top:.35rem;text-underline-offset:2px}.sf27-venue-copy{display:flex;flex-direction:column;gap:.85rem;min-width:0}.sf27-venues li .sf27-venue-copy b{font-size:clamp(1rem,1.5vw,1.45rem);overflow-wrap:normal}@media(max-width:1050px){.sf27-venues ol{grid-template-columns:1fr 1fr}.sf27-venues li:nth-child(n){border-right:1px solid #fff;border-bottom:1px solid #fff}.sf27-venues li:nth-child(2n){border-right:0}.sf27-venues li:nth-last-child(-n+2){border-bottom:0}}@media(max-width:550px){.sf27-venues ol{grid-template-columns:1fr}.sf27-venues li:nth-child(n){border-right:0;border-bottom:1px solid #fff}.sf27-venues li:last-child{border-bottom:0}.sf27-venues li img{height:6.5rem}}`;
   document.head.append(photoStyle);
-  const target = Date.parse('2026-10-29T09:30:00Z');
+  const target = Date.parse('2026-10-30T09:30:00Z');
   const panel = document.createElement('div');
   panel.className = 'sf27-announcement';
   panel.innerHTML = `<div><small>SF4 · ALBUM FOUR IS AVAILABLE TO PREORDER</small><h3>NEW RECORD.<br>FIRST IN LINE.</h3><p>CD £11.99 · Vinyl £29.99 · CD + vinyl £33.99. The album title and artwork are not final; the official store currently lists shipping in mid-2027.</p><p>Preorder by <strong>26 October, 9am UK / 4am Chicago</strong> for stadium presale access. This countdown is for the access deadline.</p><p class="sf27-clock" role="timer" aria-label="Time remaining to qualify for stadium presale access"></p><a href="https://shop.samfender.com/" target="_blank" rel="noreferrer">PREORDER SF4 ↗</a><a href="https://samfender.lnk.to/npnsf27ST" target="_blank" rel="noreferrer">NO-PURCHASE-NECESSARY ACCESS ↗</a><p>Stadium presale: <strong>28 October, 9:30am UK / 4:30am Chicago.</strong><br>General sale: <strong>30 October, 9:30am UK / 4:30am Chicago.</strong></p><p>Access does not guarantee tickets. Up to six tickets per person. Check the official site for full terms.</p></div><div><small>CONFIRMED · BELGIUM · 3 JULY 2027</small><h3>ROCK<br>WERCHTER.</h3><p>Sam closes the Main Stage on <strong>Saturday 3 July 2027</strong> at Festivalpark Werchter, Belgium.</p><p>Festival tickets go on sale <strong>30 October at 10am Belgian time / 4am Chicago.</strong> Festival presale registration is separate from the stadium tour.</p><a href="https://www.rockwerchter.be/en/news/sam-fender-closes-the-main-stage-on-saturday-3-july" target="_blank" rel="noreferrer">OFFICIAL FESTIVAL ANNOUNCEMENT ↗</a><a href="https://www.rockwerchter.be/en/" target="_blank" rel="noreferrer">FESTIVAL TICKETS &amp; PRESALE ↗</a><a href="https://www.instagram.com/p/DeuUjZxCWcx/" target="_blank" rel="noreferrer">WATCH THE FESTIVAL PROMO ↗</a></div>`;
   section.querySelector('.sf27-promo')?.insertAdjacentElement('beforebegin', panel);
   if (!panel.isConnected) section.append(panel);
   const albumCopy = panel.firstElementChild;
-  albumCopy.querySelector('h3').innerHTML = 'NEWCASTLE.<br>29 OCTOBER.';
+  albumCopy.querySelector('h3').innerHTML = 'GENERAL SALE.<br>30 OCTOBER.';
   const albumParagraphs = albumCopy.querySelectorAll('p');
-  albumParagraphs[1].innerHTML = 'The St James’ Park presale for <strong>3 and 5 June 2027</strong> has moved to <strong>Thursday 29 October, 9:30am UK / 4:30am Chicago</strong>, following a reported bot attack on Gigantic. Other tour presales opened on 28 October and remain subject to availability.';
+  albumParagraphs[1].innerHTML = 'Three extra headline shows are now listed: <strong>Cardiff 12 June, Edinburgh 10 July and London 2 September 2027.</strong> Ticketmaster lists their general sale for <strong>Friday 30 October, 9:30am UK / 4:30am Chicago</strong>.';
   albumParagraphs[3].innerHTML = 'General sale remains <strong>Friday 30 October, 9:30am UK / 4:30am Chicago.</strong> Album presale registration has closed. Eligible fans should use the link and code already emailed by the official store.';
   const changeLink = document.createElement('a');
-  changeLink.href = 'https://www.itv.com/news/tyne-tees/2026-10-28/sam-fender-ticket-site-hit-by-bot-attack-during-st-james-park-presale';
+  changeLink.href = 'https://www.samfender.com/';
   changeLink.target = '_blank';
   changeLink.rel = 'noreferrer';
-  changeLink.textContent = 'NEWCASTLE PRESALE CHANGE · ITV NEWS ↗';
+  changeLink.textContent = 'LATEST DATES & OFFICIAL TICKET LINKS ↗';
   albumCopy.append(changeLink);
   albumCopy.querySelector('a[href="https://samfender.lnk.to/npnsf27ST"]').remove();
   albumCopy.querySelector('a[href="https://shop.samfender.com/"]').textContent = 'SF4 · OFFICIAL ALBUM STORE ↗';
@@ -129,31 +130,31 @@
   section.querySelectorAll('.sf27-show-dates time').forEach(time => {
     const link = document.createElement('a');
     link.className = 'sf27-date-ticket';
-    link.href = 'https://www.ticketmaster.co.uk/explore/sam-fender-ukie-2027';
+    link.href = 'https://www.samfender.com/';
     link.target = '_blank';
     link.rel = 'noreferrer';
-    link.textContent = 'PRESALE · ' + time.textContent + ' ↗';
+    link.textContent = 'OFFICIAL TICKETS · ' + time.textContent.replace(' · NEW DATE', '') + ' ↗';
     link.setAttribute('aria-label', 'Official presale options for ' + time.textContent + ' at ' + time.closest('li').querySelector('b').textContent);
     time.after(link);
     if (time.closest('li').querySelector('b').textContent.includes('St James')) {
       const notice = document.createElement('strong');
       notice.className = 'sf27-sale-change';
-      notice.textContent = 'PRESALE MOVED · 29 OCT, 9:30AM UK / 4:30AM CHICAGO';
+      notice.textContent = 'NEWCASTLE PRESALE · RESCHEDULED TO 29 OCT · CHECK SELLER FOR AVAILABILITY';
       link.before(notice);
     }
   });
   const clock = panel.querySelector('.sf27-clock');
-  clock.setAttribute('aria-label', 'Time until the rescheduled Newcastle presale on 29 October at 9:30am UK');
+  clock.setAttribute('aria-label', 'Time until general sale on 30 October at 9:30am UK');
   const updateClock = () => {
     const seconds = Math.max(0, Math.floor((target - Date.now()) / 1000));
     if (!seconds) {
-      clock.textContent = Date.now() >= Date.parse('2026-10-30T09:30:00Z') ? 'General sale has opened. Check the official seller for availability.' : 'The rescheduled Newcastle presale has opened. General sale: 30 October, 9:30am UK / 4:30am Chicago.';
+      clock.textContent = 'General sale has opened. Check the official seller for availability.';
       return;
     }
     const days = Math.floor(seconds / 86400);
     const hours = Math.floor(seconds % 86400 / 3600);
     const minutes = Math.floor(seconds % 3600 / 60);
-    clock.textContent = `NEWCASTLE: ${days}d ${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m ${String(seconds % 60).padStart(2, '0')}s`;
+    clock.textContent = `GENERAL SALE: ${days}d ${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m ${String(seconds % 60).padStart(2, '0')}s`;
   };
   updateClock();
   const timer = setInterval(() => {
