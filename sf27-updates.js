@@ -209,4 +209,40 @@
   style.textContent += `.sf27-campaign-photo{margin:1.5rem 0 0;background:#101010;color:#fff;border:1px solid #101010}.sf27-campaign-photo picture,.sf27-campaign-photo img{display:block;width:100%}.sf27-campaign-photo img{height:clamp(260px,38vw,480px);object-fit:cover;object-position:center 48%}.sf27-campaign-photo figcaption{display:flex;justify-content:space-between;gap:1rem;padding:1rem 1.25rem;font:500 .7rem/1.5 'DM Mono',monospace}.sf27-campaign-photo a{color:#bbcaff}.sf27-announcement .sf27-preorder{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:2rem;align-items:center}.sf27-announcement .sf27-record-photo{margin:0;display:block}.sf27-record-photo img{display:block;width:100%;height:auto}.sf27-record-photo span{display:block;font-size:.65rem;line-height:1.5;margin-top:.75rem}@media(max-width:650px){.sf27-announcement .sf27-preorder{grid-template-columns:1fr;gap:1rem}.sf27-record-photo{max-width:350px;margin:auto!important}.sf27-campaign-photo img{height:360px;object-position:center 38%}.sf27-campaign-photo figcaption{flex-direction:column;gap:.3rem}}`;
   style.textContent += `.latest-news-head{margin-bottom:1.5rem}.latest-news-head h2{font-size:clamp(2.8rem,5vw,5rem)}.latest-news-grid article{min-height:20rem}.sf27-venues{margin-top:1.5rem;border-top:1px solid #101010}.sf27-venues-head{padding:1.5rem;gap:1.25rem}.sf27-venues-head h3{font-size:clamp(1.8rem,3vw,3rem)}.sf27-announcement{grid-template-columns:1fr}.sf27-announcement>div{padding:clamp(1.25rem,2.5vw,2rem)}.sf27-announcement>div+div{border-left:0;border-top:1px solid #fff}.sf27-announcement h3{font-size:clamp(2rem,3.3vw,3.2rem)}.sf27-announcement .sf27-festival{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:2rem;align-items:center;background:#101010}.sf27-festival>img{display:block;width:100%;height:auto;max-width:460px;margin:auto}.sf27-festival p{max-width:36rem}.sf27-video-details{margin-top:1.5rem;border:1px solid #101010;background:#1754d1;color:#fff}.sf27-video-details>summary{cursor:pointer;padding:1.3rem;font:500 .85rem 'DM Mono',monospace}.sf27-video-details .sf27-promo{margin-top:0;border:0;border-top:1px solid #101010}.sf27-video-details .sf27-promo-copy h3{font-size:clamp(2rem,4vw,4rem)}@media(max-width:650px){.sf27-announcement .sf27-festival{grid-template-columns:1fr;gap:1rem}.sf27-venues-head{padding:1.25rem}.sf27-festival>img{max-width:360px}}`;
   style.textContent += '.sf27-show-dates{display:flex;flex-direction:column;gap:.3rem}.sf27-show-dates time{font:500 .78rem/1.4 "DM Mono",monospace;color:#9dbaff}.sf27-announcement p{font-size:.95rem}';
+  // Current ticket status, checked against MyTicket on 30 October 2026.
+  section.querySelector('.chapter').textContent = 'UPDATED 30 OCTOBER 2026';
+  const soldOutDates = new Set(['2027-06-03', '2027-06-05', '2027-06-10', '2027-06-18', '2027-07-01', '2027-07-08', '2027-07-15', '2027-07-17']);
+  const availableLinks = {
+    '2027-06-12': 'https://www.ticketmaster.co.uk/sam-fender-proper-massive-stadium-tour-cardiff-12-06-2027/event/3500655AC5FC7455',
+    '2027-06-20': 'https://www.ticketmaster.co.uk/sam-fender-proper-massive-stadium-tour-london-20-06-2027/event/23006554D6410D47',
+    '2027-07-10': 'https://www.ticketmaster.co.uk/sam-fender-proper-massive-stadium-tour-edinburgh-10-07-2027/event/3600655B90A133A6',
+    '2027-09-02': 'https://www.ticketmaster.co.uk/sam-fender-proper-massive-stadium-tour-london-02-09-2027/event/2300655AF44913E7'
+  };
+  section.querySelectorAll('.sf27-sale-change').forEach(notice => notice.remove());
+  section.querySelectorAll('.sf27-show-dates time').forEach(time => {
+    const sold = soldOutDates.has(time.dateTime);
+    const badge = document.createElement('span');
+    badge.className = 'sf27-status ' + (sold ? 'sold-out' : 'tickets-listed');
+    badge.textContent = sold ? 'SOLD OUT' : 'TICKETS LISTED';
+    const link = time.nextElementSibling;
+    link.href = sold ? 'https://myticket.co.uk/artists/Sam-Fender' : availableLinks[time.dateTime];
+    link.textContent = sold ? 'OFFICIAL STATUS / WAITING LIST ↗' : 'BUY TICKETS ↗';
+    link.setAttribute('aria-label', (sold ? 'Official sold-out status and waiting list options' : 'Buy official tickets') + ' for ' + time.textContent + ' at ' + time.closest('li').querySelector('b').textContent);
+    time.after(badge);
+  });
+  venues.querySelector('.sf27-venues-note').innerHTML = 'CHECKED 30 OCTOBER 2026 · 8 SOLD OUT · 4 WITH TICKET LINKS · <a href="https://myticket.co.uk/artists/Sam-Fender" target="_blank" rel="noreferrer">OFFICIAL STATUS ↗</a><br>Wunderhorse supports the UK stadium dates. Check the seller for current availability.';
+  newsCard.querySelector('p').textContent = 'Eight headline shows are marked sold out. Ticket links remain for Cardiff 12 June, Wembley 20 June and 2 September, and Edinburgh 10 July. Checked 30 October.';
+  clearInterval(timer);
+  clock.remove();
+  preorderCopy.querySelector('h3').innerHTML = 'TICKETS.<br>ON SALE NOW.';
+  preorderCopy.querySelector('small').textContent = 'SF27 · GENERAL SALE UPDATE';
+  const preorderParagraphs = preorderCopy.querySelectorAll('p');
+  preorderParagraphs[0].textContent = 'SF4 is Sam’s upcoming fourth album. The previously advertised title and artwork are provisional; check the official store for current album information and ordering options.';
+  preorderParagraphs[1].innerHTML = 'General sale is open. Eight shows are marked sold out by MyTicket; four headline dates still have official purchase links. Use the links beneath each date for the latest availability.';
+  preorderParagraphs[2].innerHTML = 'The Newcastle presale rescheduling is complete. For waiting-list options, use the <a href="https://forms.poweredbyencorepro.com/forms/d4e4702d-37f8-42d5-9465-884b9d7ee031/3J11F8dL74M3mkhdtP0j" target="_blank" rel="noreferrer">official MyTicket waiting list</a>.';
+  festivalCopy.querySelectorAll('p')[1].innerHTML = '<strong>Festival tickets are on sale.</strong> One day €143 · four days €320 · selected two-day combinations €259 · Backyard one day €242. Prices include service fees, mobility and eco contributions. Camping is separate. Festival tickets include Belgian train travel to Leuven or Aarschot and the festival shuttle, subject to the festival’s terms.';
+  const festivalTickets = festivalCopy.querySelector('a[href="https://www.rockwerchter.be/en/"]');
+  festivalTickets.href = 'https://www.rockwerchter.be/en/info/tickets';
+  festivalTickets.textContent = 'FESTIVAL TICKETS & PRICES ↗';
+  style.textContent += '.sf27-status{display:inline-block;align-self:flex-start;padding:.25rem .45rem;font:500 .65rem/1.4 "DM Mono",monospace;letter-spacing:.04em}.sf27-status.sold-out{background:#f1e6d4;color:#111}.sf27-status.tickets-listed{background:#b8d9ff;color:#102d50}.sf27-venues-note a{color:inherit}.sf27-show-dates{gap:.4rem}';
 })();
