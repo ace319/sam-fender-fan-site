@@ -39,45 +39,45 @@
   const venuePhotos = [
   {
     "key": "St James",
-    "src": "https://contentfulproxy.stadion.io/9ec6988xevcz/6rLgNey9HtOXzhzwjynGJ0/65a62d5f4af806ab898ab5ba9aa4b2e5/20181008-st-james-park-exterior.jpg?f=face&fit=fill&fm=webp&h=500&w=800",
-    "source": "https://www.newcastleunited.com/en/history-of-our-home",
-    "credit": "Newcastle United",
-    "alt": "St James’ Park stadium exterior in Newcastle"
+    "src": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Newcastle_st-james-park_stadium.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Newcastle_st-james-park_stadium.jpg",
+    "credit": "Wikimedia Commons · photo / licence",
+    "alt": "Aerial view of the full St James’ Park stadium in Newcastle"
   },
   {
     "key": "Etihad",
-    "src": "https://www.britanniahotels.com/cms/britannia/images/new/etihad.jpg",
-    "source": "https://www.britanniahotels.com/blog/article/away-days-with-Britannia-hotels",
-    "credit": "Britannia Hotels",
-    "alt": "Etihad Stadium entrance in Manchester"
+    "src": "https://upload.wikimedia.org/wikipedia/commons/9/94/Manchester_city_etihad_stadium.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Manchester_city_etihad_stadium.jpg",
+    "credit": "Arne Müseler · CC BY-SA 3.0",
+    "alt": "Aerial view of Etihad Stadium and its blue seating bowl in Manchester"
   },
   {
     "key": "Principality",
-    "src": "https://images.cms.v3.s4c.cymru/media/media_assets/ab4f3b73-54bc-4db9-b4f8-b880c22d3b56.jpg",
-    "source": "https://www.s4c.cymru/en/press/post/65945/s4c-expands-six-nations-coverage-with-live-youtube-streaming/",
-    "credit": "S4C",
-    "alt": "Principality Stadium entrance in Cardiff"
+    "src": "https://walesdmsmedia.newmindmedia.com/wsimgs/27E89413E2ADA6E7D495BB5B89B40406915FEAE5.jpg",
+    "source": "https://www.meetinwales.com/attraction/sports-venue/principality-stadium-577771",
+    "credit": "Meet in Wales",
+    "alt": "Aerial view of Principality Stadium beside the River Taff in Cardiff"
   },
   {
     "key": "Marlay",
-    "src": "https://www.irishcentral.com/uploads/assets-v2/2020/8/marlay_park_dublin___icp.jpg",
-    "source": "https://www.irishcentral.com/travel/best-of-ireland/ireland-dog-walking-spots",
-    "credit": "IrishCentral",
-    "alt": "Gardens at Marlay Park in Dublin"
+    "src": "https://www.irishtimes.com/resizer/v2/EGHC73PARBEQLBYUP6RQ2HVCNA.jpg?auth=5a015a0ec4070c19383b43067df19bf14666599de0e37d15f1a0673e532f9a03&width=1200",
+    "source": "https://www.irishtimes.com/culture/music/2024/06/26/longitude-2024-at-marlay-park-dublin-whos-playing-ticket-information-how-to-get-there-and-more/",
+    "credit": "The Irish Times · Longitude festival",
+    "alt": "Aerial night view of the concert grounds at Marlay Park during Longitude Festival"
   },
   {
     "key": "Murrayfield",
-    "src": "https://gigtix.uk/wp-content/uploads/2022/07/twitter-murrayfield-b.jpg",
-    "source": "https://gigtix.uk/venue/murrayfield-stadium-56068/",
-    "credit": "Gigtix",
-    "alt": "Murrayfield stadium exterior in Edinburgh"
+    "src": "https://stadiumdb.com/img/news/2019/10/01murr.jpg",
+    "source": "https://stadiumdb.com/news/2019/10/edinburgh_murrayfields_hospitality_revamped",
+    "credit": "StadiumDB",
+    "alt": "Aerial view of Murrayfield stadium showing the whole rugby ground in Edinburgh"
   },
   {
     "key": "Wembley",
-    "src": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Wembley-Stadion_2013.jpg",
-    "source": "https://commons.wikimedia.org/wiki/File:Wembley-Stadion_2013.jpg",
-    "credit": "Wikimedia Commons · photo / licence",
-    "alt": "Wembley Stadium and its arch in London"
+    "src": "https://files.structurae.net/files/photos/wikipedia/london-wembley.jpg",
+    "source": "https://structurae.net/en/structures/wembley-stadium",
+    "credit": "Structurae · Wikimedia photo",
+    "alt": "Aerial view of Wembley Stadium with its arch and red seating bowl"
   }
 ];
   section.querySelectorAll('.sf27-venues li').forEach(card => {
@@ -245,4 +245,5 @@
   festivalTickets.href = 'https://www.rockwerchter.be/en/info/tickets';
   festivalTickets.textContent = 'FESTIVAL TICKETS & PRICES ↗';
   style.textContent += '.sf27-status{display:inline-block;align-self:flex-start;padding:.25rem .45rem;font:500 .65rem/1.4 "DM Mono",monospace;letter-spacing:.04em}.sf27-status.sold-out{background:#f1e6d4;color:#111}.sf27-status.tickets-listed{background:#b8d9ff;color:#102d50}.sf27-venues-note a{color:inherit}.sf27-show-dates{gap:.4rem}';
+  style.textContent += `.sf27-venues li{grid-template-columns:1fr;align-items:start;gap:1rem}.sf27-venues li img{height:clamp(160px,17vw,220px);object-fit:cover}.sf27-venues li figure a{font-size:.6rem}.sf27-venue-copy{gap:.65rem}.sf27-venues li .sf27-venue-copy b{font-size:1.35rem}@media(max-width:550px){.sf27-venues li img{height:210px}}`;
 })();
