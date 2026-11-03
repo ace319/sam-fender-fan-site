@@ -250,6 +250,13 @@
   newSingle.className = 'sf-new-single';
   newSingle.innerHTML = `<small>NEW SINGLE · 3 NOVEMBER 2026 · THE ROLLING STONES COVER</small><h3>YOU CAN’T ALWAYS<br>GET WHAT YOU WANT.</h3><p>Sam brings it home to North Shields, with the choir from his old school, John Spence Community High School, and Easington Colliery Band. The recording soundtracks the 2026 John Lewis Christmas advert.</p><p>The CD and 7-inch are backed with his cover of Lindisfarne’s “Winter Song.” Sam and Polydor are donating 100% of the net profits from eligible UK CD and 7-inch sales through his official store to Teenage Cancer Trust.</p><a href="https://shop.samfender.com/" target="_blank" rel="noreferrer">THE SINGLE · OFFICIAL STORE ↗</a><a href="https://www.universalmusic.ca/2026/11/03/sam-fender-covers-the-rolling-stones-seminal-you-cant-always-get-what-you-want/" target="_blank" rel="noreferrer">OFFICIAL RELEASE DETAILS ↗</a>`;
   section.querySelector('.latest-news-head').after(newSingle);
+  const lyricVideo = document.createElement('div');
+  lyricVideo.className = 'sf-single-video';
+  lyricVideo.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/uJqzAkWvaA4" title="Sam Fender — You Can’t Always Get What You Want (Official Lyric Video)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><a href="https://youtu.be/uJqzAkWvaA4" target="_blank" rel="noreferrer">WATCH THE OFFICIAL LYRIC VIDEO ↗</a>`;
+  const singleCopy = document.createElement('div');
+  while (newSingle.firstChild) singleCopy.append(newSingle.firstChild);
+  newSingle.append(singleCopy, lyricVideo);
+  style.textContent += `.sf-new-single{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem;align-items:center}.sf-single-video iframe{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111}.sf-single-video a{font-size:.7rem}@media(max-width:800px){.sf-new-single{grid-template-columns:1fr;gap:1rem}}`;
   section.querySelector('.chapter').textContent = 'UPDATED 3 NOVEMBER 2026';
   style.textContent += `.sf-new-single{padding:clamp(1.5rem,3vw,2.5rem);margin-bottom:1.5rem;background:#1754d1;color:#fff;border:1px solid #101010}.sf-new-single small,.sf-new-single a{font:.72rem/1.5 'DM Mono',monospace}.sf-new-single h3{font:clamp(1.8rem,4vw,4rem)/.95 'Archivo Black',sans-serif;letter-spacing:-.04em;margin:1rem 0}.sf-new-single p{max-width:65rem;line-height:1.6}.sf-new-single a{color:inherit;display:inline-block;margin:.5rem 1.5rem .5rem 0;text-underline-offset:3px}`;
 })();
