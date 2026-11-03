@@ -74,10 +74,10 @@
   },
   {
     "key": "Wembley",
-    "src": "https://files.structurae.net/files/photos/wikipedia/london-wembley.jpg",
-    "source": "https://structurae.net/en/structures/wembley-stadium",
-    "credit": "Structurae · Wikimedia photo",
-    "alt": "Aerial view of Wembley Stadium with its arch and red seating bowl"
+    "src": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Wembley-Stadion_2013.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Wembley-Stadion_2013.jpg",
+    "credit": "Wikimedia Commons · photo / licence",
+    "alt": "Wembley Stadium and its arch in London"
   }
 ];
   section.querySelectorAll('.sf27-venues li').forEach(card => {
