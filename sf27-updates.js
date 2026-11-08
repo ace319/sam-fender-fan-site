@@ -259,4 +259,24 @@
   style.textContent += `.sf-new-single{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem;align-items:center}.sf-single-video iframe{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111}.sf-single-video a{font-size:.7rem}@media(max-width:800px){.sf-new-single{grid-template-columns:1fr;gap:1rem}}`;
   section.querySelector('.chapter').textContent = 'UPDATED 3 NOVEMBER 2026';
   style.textContent += `.sf-new-single{padding:clamp(1.5rem,3vw,2.5rem);margin-bottom:1.5rem;background:#1754d1;color:#fff;border:1px solid #101010}.sf-new-single small,.sf-new-single a{font:.72rem/1.5 'DM Mono',monospace}.sf-new-single h3{font:clamp(1.8rem,4vw,4rem)/.95 'Archivo Black',sans-serif;letter-spacing:-.04em;margin:1rem 0}.sf-new-single p{max-width:65rem;line-height:1.6}.sf-new-single a{color:inherit;display:inline-block;margin:.5rem 1.5rem .5rem 0;text-underline-offset:3px}`;
+  const nextAnnouncement = document.createElement('aside');
+  nextAnnouncement.className = 'sf-next-announcement';
+  nextAnnouncement.innerHTML = `<div><small>NEXT ANNOUNCEMENT · OFFICIAL WEBSITE COUNTDOWN</small><h3>12 NOVEMBER.<br>WHAT’S NEXT?</h3><p>Thursday 12 November 2026 · <strong>3pm UK / 9am Chicago</strong>.<br>Sam hasn’t revealed what the announcement will be.</p><a href="https://www.samfender.com/" target="_blank" rel="noreferrer">FOLLOW THE OFFICIAL ANNOUNCEMENT ↗</a></div><p class="sf-next-clock" role="timer" aria-label="Time until the official announcement on 12 November at 3pm UK"></p>`;
+  section.querySelector('.latest-news-head').after(nextAnnouncement);
+  const nextTarget = Date.parse('2026-11-12T15:00:00Z');
+  const nextClock = nextAnnouncement.querySelector('.sf-next-clock');
+  const tickNext = () => {
+    const remaining = Math.max(0, Math.floor((nextTarget - Date.now()) / 1000));
+    if (!remaining) {
+      nextClock.textContent = 'The countdown has ended. Check Sam’s official site for the announcement.';
+      return;
+    }
+    nextClock.textContent = `${Math.floor(remaining / 86400)}d ${String(Math.floor(remaining % 86400 / 3600)).padStart(2, '0')}h ${String(Math.floor(remaining % 3600 / 60)).padStart(2, '0')}m ${String(remaining % 60).padStart(2, '0')}s`;
+  };
+  tickNext();
+  if (Date.now() < nextTarget) {
+    const nextTimer = setInterval(() => { tickNext(); if (Date.now() >= nextTarget) clearInterval(nextTimer); }, 1000);
+  }
+  section.querySelector('.chapter').textContent = 'UPDATED 8 NOVEMBER 2026';
+  style.textContent += `.sf-next-announcement{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:2rem;align-items:center;padding:clamp(1.5rem,3vw,2.5rem);margin-bottom:1.5rem;background:#1754d1;color:#fff;border:1px solid #101010}.sf-next-announcement small,.sf-next-announcement a{font:.72rem/1.5 'DM Mono',monospace}.sf-next-announcement h3{font:clamp(2rem,4vw,4rem)/.95 'Archivo Black',sans-serif;margin:1rem 0}.sf-next-announcement p{line-height:1.6}.sf-next-announcement a{color:inherit;text-underline-offset:4px}.sf-next-clock{font:clamp(1.3rem,2.8vw,2.8rem)/1.3 'DM Mono',monospace;font-variant-numeric:tabular-nums}@media(max-width:700px){.sf-next-announcement{grid-template-columns:1fr;gap:1rem}}`;
 })();
