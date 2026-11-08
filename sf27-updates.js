@@ -252,7 +252,7 @@
   section.querySelector('.latest-news-head').after(newSingle);
   const lyricVideo = document.createElement('div');
   lyricVideo.className = 'sf-single-video';
-  lyricVideo.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/uJqzAkWvaA4" title="Sam Fender — You Can’t Always Get What You Want (Official Lyric Video)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><a href="https://youtu.be/uJqzAkWvaA4" target="_blank" rel="noreferrer">WATCH THE OFFICIAL LYRIC VIDEO ↗</a>`;
+  lyricVideo.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/qVbu5FLCvd0" title="Sam Fender — You Can’t Always Get What You Want (Official Video)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><a href="https://youtu.be/qVbu5FLCvd0" target="_blank" rel="noreferrer">WATCH THE OFFICIAL VIDEO ↗</a><a href="https://youtu.be/uJqzAkWvaA4" target="_blank" rel="noreferrer">LYRIC VIDEO ↗</a>`;
   const singleCopy = document.createElement('div');
   while (newSingle.firstChild) singleCopy.append(newSingle.firstChild);
   newSingle.append(singleCopy, lyricVideo);
