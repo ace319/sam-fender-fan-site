@@ -259,24 +259,23 @@
   style.textContent += `.sf-new-single{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem;align-items:center}.sf-single-video iframe{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111}.sf-single-video a{font-size:.7rem}@media(max-width:800px){.sf-new-single{grid-template-columns:1fr;gap:1rem}}`;
   section.querySelector('.chapter').textContent = 'UPDATED 3 NOVEMBER 2026';
   style.textContent += `.sf-new-single{padding:clamp(1.5rem,3vw,2.5rem);margin-bottom:1.5rem;background:#1754d1;color:#fff;border:1px solid #101010}.sf-new-single small,.sf-new-single a{font:.72rem/1.5 'DM Mono',monospace}.sf-new-single h3{font:clamp(1.8rem,4vw,4rem)/.95 'Archivo Black',sans-serif;letter-spacing:-.04em;margin:1rem 0}.sf-new-single p{max-width:65rem;line-height:1.6}.sf-new-single a{color:inherit;display:inline-block;margin:.5rem 1.5rem .5rem 0;text-underline-offset:3px}`;
-  const nextAnnouncement = document.createElement('aside');
-  nextAnnouncement.className = 'sf-next-announcement';
-  nextAnnouncement.innerHTML = `<div><small>NEXT ANNOUNCEMENT · OFFICIAL WEBSITE COUNTDOWN</small><h3>NORTH AMERICA<br>NEXT?</h3><p>Thursday 12 November 2026 · <strong>5pm UK / 11am Chicago</strong>.<br>Sam is teasing North American shows. Full announcement expected 12 November; cities and dates aren’t confirmed yet.</p><a href="https://www.samfender.com/" target="_blank" rel="noreferrer">FOLLOW THE OFFICIAL ANNOUNCEMENT ↗</a></div><p class="sf-next-clock" role="timer" aria-label="Time until the official announcement on 12 November at 5pm UK"></p>`;
-  section.querySelector('.latest-news-head').after(nextAnnouncement);
-  const nextTarget = Date.parse('2026-11-12T17:00:00Z');
-  const nextClock = nextAnnouncement.querySelector('.sf-next-clock');
-  const tickNext = () => {
-    const remaining = Math.max(0, Math.floor((nextTarget - Date.now()) / 1000));
-    if (!remaining) {
-      nextClock.textContent = 'The countdown has ended. Check Sam’s official site for the announcement.';
-      return;
-    }
-    nextClock.textContent = `${Math.floor(remaining / 86400)}d ${String(Math.floor(remaining % 86400 / 3600)).padStart(2, '0')}h ${String(Math.floor(remaining % 3600 / 60)).padStart(2, '0')}m ${String(remaining % 60).padStart(2, '0')}s`;
-  };
-  tickNext();
-  if (Date.now() < nextTarget) {
-    const nextTimer = setInterval(() => { tickNext(); if (Date.now() >= nextTarget) clearInterval(nextTimer); }, 1000);
-  }
-  section.querySelector('.chapter').textContent = 'UPDATED 11 NOVEMBER 2026';
-  style.textContent += `.sf-next-announcement{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:2rem;align-items:center;padding:clamp(1.5rem,3vw,2.5rem);margin-bottom:1.5rem;background:#1754d1;color:#fff;border:1px solid #101010}.sf-next-announcement small,.sf-next-announcement a{font:.72rem/1.5 'DM Mono',monospace}.sf-next-announcement h3{font:clamp(2rem,4vw,4rem)/.95 'Archivo Black',sans-serif;margin:1rem 0}.sf-next-announcement p{line-height:1.6}.sf-next-announcement a{color:inherit;text-underline-offset:4px}.sf-next-clock{font:clamp(1.3rem,2.8vw,2.8rem)/1.3 'DM Mono',monospace;font-variant-numeric:tabular-nums}@media(max-width:700px){.sf-next-announcement{grid-template-columns:1fr;gap:1rem}}`;
+  const northAmerica = document.createElement('aside');
+  northAmerica.className = 'sf-na-announcement';
+  const northAmericaShows = [
+    ['2027-04-20', 'Boston, US', 'MGM Music Hall at Fenway'],
+    ['2027-04-22', 'New York, US', 'Radio City Music Hall'],
+    ['2027-04-24', 'Toronto, Canada', 'Scotiabank Arena'],
+    ['2027-04-27', 'Milwaukee, US', 'The Rave – Eagles Ballroom'],
+    ['2027-04-29', 'Denver, US', 'Red Rocks Amphitheatre'],
+    ['2027-05-01', 'Arizona, US', 'Mullett Arena'],
+    ['2027-05-03', 'Los Angeles, US', 'Greek Theatre'],
+    ['2027-05-05', 'Portland, US', 'Venue to be announced'],
+    ['2027-05-07', 'Seattle, US', 'WAMU Theater'],
+    ['2027-05-09', 'Vancouver, Canada', 'Rogers Arena']
+  ];
+  const presaleUrl = 'https://laylo.com/samfender/m/sY0U7F';
+  northAmerica.innerHTML = `<small>JUST ANNOUNCED · 12 NOVEMBER 2026</small><h3>NORTH AMERICA.<br>SEE YOU IN ’27.</h3><p>Ten shows across the US and Canada, 20 April–9 May 2027. The official presale signup is open; follow Sam’s links for access details and sale times.</p><a href="${presaleUrl}" target="_blank" rel="noreferrer">SIGN UP FOR OFFICIAL PRESALE ↗</a><details><summary>ALL 10 DATES &amp; VENUES</summary><ol>${northAmericaShows.map(([date, city, venue]) => `<li><time datetime="${date}">${dateFormat.format(new Date(date + 'T12:00:00Z'))} 2027</time><strong>${city}</strong><span>${venue}</span><a href="${presaleUrl}" target="_blank" rel="noreferrer" aria-label="Official presale access for ${city} on ${date}">ACCESS PRESALE ↗</a></li>`).join('')}</ol></details><a href="https://www.samfender.com/" target="_blank" rel="noreferrer">CONFIRMED DATES · SAM’S OFFICIAL WEBSITE ↗</a>`;
+  section.querySelector('.latest-news-head').after(northAmerica);
+  section.querySelector('.chapter').textContent = 'UPDATED 12 NOVEMBER 2026';
+  style.textContent += `.sf-na-announcement{padding:clamp(1.5rem,3vw,2.5rem);margin-bottom:1.5rem;background:#1754d1;color:#fff;border:1px solid #101010}.sf-na-announcement small,.sf-na-announcement a,.sf-na-announcement summary,.sf-na-announcement time{font:.72rem/1.5 'DM Mono',monospace}.sf-na-announcement h3{font:clamp(2rem,4vw,4rem)/.95 'Archivo Black',sans-serif;margin:1rem 0}.sf-na-announcement p{max-width:55rem;line-height:1.6}.sf-na-announcement a{color:inherit;text-underline-offset:4px}.sf-na-announcement details{margin:1.5rem 0;border-top:1px solid #8eb0ff;border-bottom:1px solid #8eb0ff}.sf-na-announcement summary{cursor:pointer;padding:1rem 0}.sf-na-announcement ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 2rem}.sf-na-announcement li{display:flex;flex-direction:column;gap:.35rem;padding:1rem 0;border-top:1px solid #8eb0ff}.sf-na-announcement li strong{font-size:1.15rem}.sf-na-announcement li span{font-size:.9rem}.sf-na-announcement li a{margin-top:.3rem}@media(max-width:650px){.sf-na-announcement ol{grid-template-columns:1fr}}`;
 })();
