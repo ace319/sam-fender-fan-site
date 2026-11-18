@@ -282,6 +282,16 @@
   const glastonbury = document.createElement('article');
   glastonbury.className = 'sf-glasto-announcement';
   glastonbury.innerHTML = `<small>CONFIRMED · 18 NOVEMBER 2026</small><h3>GLASTONBURY.<br>SAM’S HEADLINING.</h3><p>From North Shields to the top of the Pyramid Stage. Sam joins Harry Styles and Billie Eilish as a Glastonbury 2027 headliner.</p><p><strong>Worthy Farm, Pilton, Somerset · 23–27 June 2027.</strong><br>Festival dates shown; set times are still to come.</p><a href="https://www.glastonburyfestivals.co.uk/news/glastonbury-2027-line-up-so-far/" target="_blank" rel="noreferrer">OFFICIAL FESTIVAL ANNOUNCEMENT ↗</a>`;
+  const glastoCopy = document.createElement('div');
+  while (glastonbury.firstChild) glastoCopy.append(glastonbury.firstChild);
+  const glastoPoster = document.createElement('a');
+  glastoPoster.href = 'https://www.glastonburyfestivals.co.uk/wp-content/uploads/2026/11/Glastonbury2027_socials_18.11.26-1.png';
+  glastoPoster.target = '_blank';
+  glastoPoster.rel = 'noreferrer';
+  glastoPoster.setAttribute('aria-label', 'Open the full-size Glastonbury 2027 lineup poster');
+  glastoPoster.innerHTML = '<img src="https://www.glastonburyfestivals.co.uk/wp-content/uploads/2026/11/Glastonbury2027_socials_18.11.26-1-768x1024.png" alt="Official Glastonbury 2027 lineup poster, with Sam Fender listed among the headliners" width="768" height="1024" loading="lazy"><span>VIEW FULL-SIZE LINEUP POSTER</span>';
+  glastonbury.append(glastoCopy, glastoPoster);
+  style.textContent += '.sf-glasto-announcement{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:2rem;align-items:center}.sf-glasto-announcement> a{display:block}.sf-glasto-announcement img{display:block;width:100%;height:auto;max-width:420px;margin:auto}.sf-glasto-announcement>a span{display:block;margin-top:.75rem;text-align:center;font-size:.875rem}.sf-glasto-announcement small,.sf-glasto-announcement a{font-size:.875rem}@media(max-width:700px){.sf-glasto-announcement{grid-template-columns:1fr}.sf-glasto-announcement img{max-width:380px}}';
   section.querySelector('.latest-news-head').after(glastonbury);
   section.querySelector('.chapter').textContent = 'UPDATED 18 NOVEMBER 2026';
   style.textContent += `.sf-glasto-announcement{padding:clamp(1.5rem,3vw,2.5rem);margin-bottom:1.5rem;background:#101010;color:#fff;border:1px solid #101010}.sf-glasto-announcement small,.sf-glasto-announcement a{font:.72rem/1.5 'DM Mono',monospace}.sf-glasto-announcement h3{font:clamp(2rem,5vw,5rem)/.95 'Archivo Black',sans-serif;letter-spacing:-.04em;margin:1rem 0;color:#b8d9ff}.sf-glasto-announcement p{max-width:55rem;line-height:1.6}.sf-glasto-announcement a{color:#b8d9ff;text-underline-offset:4px}`;
